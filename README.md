@@ -66,7 +66,7 @@ Finalmente, vamos a realizar la migración. Para esto, nos paramos en `recomenda
 python manage.py migrate
 ```
 
-### Ejecutar el Proyecto
+## Ejecutar el Proyecto
 
 Para correr el proyecto, usamos este comando estando parados en `recomendacion_de_donaciones`:
 
