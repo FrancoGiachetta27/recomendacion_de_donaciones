@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class DonacionesConfig(AppConfig):
+class RecomendacionesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'donaciones'
+    name = 'recomendaciones'
