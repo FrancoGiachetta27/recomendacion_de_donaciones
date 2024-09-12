@@ -1,5 +1,5 @@
 from django.test import TestCase
-from recomendacion_de_donaciones.recomendaciones.models import (
+from .models import (
     Direccion,
     PersonaVulnerable,
     Ubicacion,
@@ -8,165 +8,155 @@ from recomendacion_de_donaciones.recomendaciones.models import (
 
 # Create your tests here.
 class RecomendacionesTest(TestCase):
-    def set_up():
-        Direccion.objects.create(calle="Urquiza", altura=200, provincia="Santa Fe")
-        Direccion.objects.create(
+    def setUp(self):
+        d1 = Direccion.objects.create(calle="Urquiza", altura=200, provincia="Santa Fe")
+        d2 = Direccion.objects.create(
             calle="Hipólito Yrigoyen", altura=300, provincia="Cordoba"
         )
-        Direccion.objects.create(calle="Beltrán", altura=100, provincia="Mendoza")
-        Direccion.objects.create(calle="Paraguay ", altura=90, provincia="Corrientes")
-        Direccion.objects.create(
+        d3 = Direccion.objects.create(calle="Beltrán", altura=100, provincia="Mendoza")
+        d4 =Direccion.objects.create(calle="Paraguay ", altura=90, provincia="Corrientes")
+        d5 =Direccion.objects.create(
             calle="Corrientes ", altura=700, provincia="Buenos Aires"
         )
-        Direccion.objects.create(calle="25 de Mayo", altura=450, provincia="Entre Rios")
-        Direccion.objects.create(calle="Medrano", altura=22, provincia="Buenos Aires")
-        Direccion.objects.create(
+        d6 =Direccion.objects.create(calle="25 de Mayo", altura=450, provincia="Entre Rios")
+        d7 =Direccion.objects.create(calle="Medrano", altura=22, provincia="Buenos Aires")
+        d8 =Direccion.objects.create(
             calle="Juan B Justo", altura=22, provincia="Buenos Aires"
         )
-        Direccion.objects.create(
+        d9 =Direccion.objects.create(
             calle="Directorio", altura=532, provincia="Buenos Aires"
         )
-        Direccion.objects.create(calle="Acoyte", altura=1099, provincia="Buenos Aires")
+        d10 =Direccion.objects.create(calle="Acoyte", altura=1099, provincia="Buenos Aires")
 
-        Ubicacion.objects.create(
+        u1 = Ubicacion.objects.create(
             nombre="ubcacion1",
             latitud=-33.15,
             longitud=-60.49,
-            calle="Urquiza",
-            altura=200,
+            direccion=d1
         )
-        Ubicacion.objects.create(
+        u2 = Ubicacion.objects.create(
             nombre="ubcacion2",
             latitud=-33.12,
             longitud=-64.34,
-            calle="Hipólito Yrigoyen",
-            altura=300,
+            direccion=d2
         )
-        Ubicacion.objects.create(
+        u3 = Ubicacion.objects.create(
             nombre="ubcacion3",
             latitud=-32.92,
             longitud=-68.84,
-            calle="Beltrán",
-            altura=100,
+            direccion=d3
         )
-        Ubicacion.objects.create(
+        u4 = Ubicacion.objects.create(
             nombre="ubcacion4",
             latitud=-29.13,
             longitud=-59.25,
-            calle="Paraguay ",
-            altura=90,
+            direccion=d4
         )
-        Ubicacion.objects.create(
+        u5 = Ubicacion.objects.create(
             nombre="ubcacion5",
             latitud=-38.71,
             longitud=-62.25,
-            calle="Corrientes ",
-            altura=700,
+            direccion=d5
         )
-        Ubicacion.objects.create(
+        u6 = Ubicacion.objects.create(
             nombre="ubcacion6",
             latitud=-31.62,
             longitud=-58.50,
-            calle="25 de Mayo",
-            altura=450,
+            direccion=d6
         )
-        Ubicacion.objects.create(
+        u7 = Ubicacion.objects.create(
             nombre="ubcacion7",
             latitud=-33.80,
             longitud=-59.51,
-            calle="Medrano",
-            altura=22,
+            direccion=d7
         )
-        Ubicacion.objects.create(
+        u8 = Ubicacion.objects.create(
             nombre="ubcacion8",
             latitud=-34.43,
             longitud=-61.82,
-            calle="Juan B Justo",
-            altura=22,
+            direccion=d8
         )
-        Ubicacion.objects.create(
+        u9 = Ubicacion.objects.create(
             nombre="ubcacion9",
             latitud=-34.66,
             longitud=-58.41,
-            calle="Directorio",
-            altura=532,
+            direccion=d9
         )
-        Ubicacion.objects.create(
+        u10 = Ubicacion.objects.create(
             nombre="ubcacion10",
             latitud=-34.60,
             longitud=-58.44,
-            calle="Acoyte",
-            altura=1099,
+            direccion=d10
         )
 
         PersonaVulnerable.objects.create(
             nombre="federico",
             apellido="Urquiza",
             fecha_nacimiento="2002-11-08",
-            direccion=1,
+            direccion=u1,
         )
         PersonaVulnerable.objects.create(
             nombre="santiago",
             apellido="Urquiza",
             fecha_nacimiento="2003-04-04",
-            direccion=2,
+            direccion=u2,
         )
         PersonaVulnerable.objects.create(
             nombre="marcos",
             apellido="Urquiza",
             fecha_nacimiento="2003-06-26",
-            direccion=3,
+            direccion=u3,
         )
         PersonaVulnerable.objects.create(
             nombre="elina",
             apellido="Urquiza",
             fecha_nacimiento="2002-11-20",
-            direccion=4,
+            direccion=u4,
         )
         PersonaVulnerable.objects.create(
             nombre="sofia",
             apellido="Urquiza",
             fecha_nacimiento="2002-11-21",
-            direccion=5,
+            direccion=u5,
         )
         PersonaVulnerable.objects.create(
             nombre="manuel",
             apellido="Urquiza",
             fecha_nacimiento="2003-05-03",
-            direccion=6,
+            direccion=u6,
         )
         PersonaVulnerable.objects.create(
             nombre="delfina",
             apellido="Urquiza",
             fecha_nacimiento="2003-05-07",
-            direccion=7,
+            direccion=u7,
         )
         PersonaVulnerable.objects.create(
             nombre="nicolas",
             apellido="Urquiza",
             fecha_nacimiento="2003-01-05",
-            direccion=8,
+            direccion=u8,
         )
         PersonaVulnerable.objects.create(
             nombre="pepe",
             apellido="Urquiza",
             fecha_nacimiento="2002-12-02",
-            direccion=9,
+            direccion=u9,
         )
         PersonaVulnerable.objects.create(
             nombre="fiona",
             apellido="Urquiza",
             fecha_nacimiento="2002-05-27",
-            direccion=10,
+            direccion=u10,
         )
 
-    def test_recomendaciones():
+    def test_recomendaciones(self):
         lat = -32.855153049454
         lon = -60.6976005574217
 
         personas_vulnerables = PersonaVulnerable.objects.raw(
             f"""
-                select  from personas_vulnerables pv
+                select * from personas_vulnerables pv
                 join ubicaciones ub on pv.direccion_id = ub.id
                 where sqrt(pow(ub.latitud - {lat}, 2) + pow(ub.longitud - {lon}, 2)) < {2}
                 limit {5}
@@ -190,22 +180,24 @@ class RecomendacionesTest(TestCase):
                 nombre="delfina",
                 apellido="Urquiza",
                 direccion=dict(
-                    provincia="Santa Fe",
-                    latitud=-33.80,
-                    longitud=-59.51,
+                    provincia="Buenos Aires",
                     calle="Medrano",
                     altura=22,
+                    latitud=-33.80,
+                    longitud=-59.51,
                 ),
             ),
             dict(
-                nombre="federico",
+                nombre="nicolas",
                 apellido="Urquiza",
                 direccion=dict(
-                    provincia="Santa Fe",
-                    calle="Urquiza",
-                    altura=200,
-                    latitud=-33.15,
-                    longitud=-60.49,
+                    provincia="Buenos Aires",
+                    calle="Juan B Justo",
+                    altura=22,
+                    latitud=-34.43,
+                    longitud=-61.82,
                 ),
             ),
         ]
+
+        self.assertEqual(list(recomendaciones), expected)

@@ -42,6 +42,27 @@ class PersonaVulnerable(models.Model):
             cantidad_recomendada=cantidad_recomendada,
         )
 
+    def recomendacion_para_test(self):
+        ubicacion = Ubicacion.objects.get(id=self.direccion.id)
+        direccion = Direccion.objects.get(id=ubicacion.direccion.id)
+        menores_a_cargo = PersonaVulnerable.objects.all().filter(
+            menores_a_cargo=self.id
+        )
+        cantidad_recomendada = len(menores_a_cargo)
+
+        return dict(
+            nombre=self.nombre,
+            apellido=self.apellido,
+            direccion=dict(
+                provincia=direccion.provincia,
+                calle=direccion.calle,
+                altura=direccion.altura,
+                latitud=ubicacion.latitud,
+                longitud=ubicacion.longitud,
+            ),
+            cantidad_recomendada=cantidad_recomendada,
+        )
+
 
 # ===== ubicaciones =====
 
