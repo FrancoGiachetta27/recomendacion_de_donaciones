@@ -8,6 +8,8 @@ mysqlclient = "*"
 django = "*"
 python-dotenv = "*"
 django-ninja = "*"
+dj-database-url = "*"
+django-environ = "*"
 
 [dev-packages]
 
