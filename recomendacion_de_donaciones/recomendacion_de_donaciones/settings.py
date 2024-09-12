@@ -44,7 +44,6 @@ else:
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "recomendaciones-donaciones.up.railway.app"]
 CSRF_TRUSTED_ORIGINS = ["https://recomendaciones-donaciones.up.railway.app"]
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Application definition
