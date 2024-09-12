@@ -14,6 +14,13 @@ from pathlib import Path
 from typing import Dict
 from environ import Env, os
 import dj_database_url
+import pymysql
+
+
+# Fake PyMySQL's version and install as MySQLdb
+# https://adamj.eu/tech/2020/02/04/how-to-use-pymysql-with-django/
+pymysql.version_info = (1, 4, 3, "final", 0)
+pymysql.install_as_MySQLdb()
 
 env = Env()
 Env.read_env()
