@@ -4,15 +4,28 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-mysqlclient = "*"
-django = "*"
-python-dotenv = "*"
-django-ninja = "*"
-dj-database-url = "*"
-django-environ = "*"
-gunicorn = "*"
+mysqlclient = "==2.2.4"
+django = "==5.1.1"
+python-dotenv = "==1.0.1"
+django-ninja = "==1.3.0"
+dj-database-url = "==2.2.0"
+django-environ = "==0.11.2"
+gunicorn = "==23.0.0"
+annotated-types = "==0.7.0"
+asgiref = "==3.8.1"
+certifi = "==2024.8.30"
+charset-normalizer = "==3.3.2"
+idna = "==3.8"
+packaging = "==24.1"
+pydantic = "==2.9.1"
+pydantic-core = "==2.23.3"
+requests = "==2.32.3"
+sqlparse = "==0.5.1"
+typing-extensions = "==4.12.2"
+tzdata = "==2024.1"
+urllib3 = "==2.2.2"
 
 [dev-packages]
 
 [requires]
-python_version = "3.12.5"
+python_version = "3.11"
