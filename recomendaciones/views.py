@@ -11,7 +11,7 @@ from .utils import distancia_coordenadas, georef_request_coords
 api = NinjaAPI()
 
 
-@api.get("/recomendaciones", response=List[RecomendacionPersonaVulnerable])
+@api.get("/personas", response=List[RecomendacionPersonaVulnerable])
 def recomandacion_direccion(
     request,
     calle: str,
@@ -23,7 +23,7 @@ def recomandacion_direccion(
     params = dict(direccion=calle + str(altura), provincia=provincia, max=1)
 
     georef_response = georef_request_coords("direcciones", params)
-    
+
     personas_vulnerables = PersonaVulnerable.objects.raw(
         f"""
             select * from personas_vulnerables pv
@@ -37,6 +37,6 @@ def recomandacion_direccion(
     return list(recomendaciones)
 
 
-# @api.get("/recomendaciones", response=List[RecomendacionPersonaVulnerable])
+# @api.get("/heladeras", response=List[RecomendacionHeladera])
 # def recomandacion_coordenadas(request, coordenda: CoordenadaSchema, max: int):
 #     pass
