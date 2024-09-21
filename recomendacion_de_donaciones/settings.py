@@ -10,43 +10,27 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+from dotenv import load_dotenv
 from pathlib import Path
-from typing import Dict
-from environ import Env, os
-import dj_database_url
-import pymysql
+import os
 
-
-# Fake PyMySQL's version and install as MySQLdb
-# https://adamj.eu/tech/2020/02/04/how-to-use-pymysql-with-django/
-pymysql.version_info = (1, 4, 3, "final", 0)
-pymysql.install_as_MySQLdb()
-
-env = Env()
-Env.read_env()
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-ENVIRONMENT = env("ENVIRONMENT")
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = "django-insecure-2uek$hj0bqye##c4b%@xaho)fyaalp8_0(0cr1vbmtfjxmh(#8"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if ENVIRONMENT == "development":
-    DEBUG = True
-else:
-    DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    "*"
-]  # "localhost", "127.0.0.1", "recomendaciones-donaciones.up.railway.app"]
-CSRF_TRUSTED_ORIGINS = ["https://recomendaciones-donaciones.up.railway.app"]
+ALLOWED_HOSTS = []
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Application definition
 
@@ -94,20 +78,20 @@ WSGI_APPLICATION = "recomendacion_de_donaciones.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES: Dict = {
+DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": env("DB_NAME"),
+        "NAME": os.getenv("DB_NAME"),
         "USER": "root",
-        "PASSWORD": env("PASSWORD"),
+        "PASSWORD": os.getenv("PASSWORD"),
         "HOST": "localhost",
-        "PORT": env("PORT"),
-    },
+        "PORT": os.getenv("PORT"),
+    }
 }
 
-MYSQL_LOCALLY = False
-if ENVIRONMENT == "production" or MYSQL_LOCALLY == True:
-    DATABASES["default"] = dj_database_url.parse(env("DATABASE_URL"))
+print( os.getenv("PORT"))
+print( os.getenv("DB_NAME"))
+print( os.getenv("PASSWORD"))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
