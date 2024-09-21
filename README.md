@@ -50,7 +50,7 @@ create database <nombre-que-quieran>
 
 ### .Env
 
-Para que cada uno use contraseñas y creadencias que quiera, vamos a crear un archivo `.env` dentro de `recomendacion_de_donaciones/recomendacion_de_donaciones` y vamos a establecer las siguientes variables de entorno:
+Para que cada uno use contraseñas y creadencias que quiera, vamos a crear un archivo `.env` dentro de `/recomendacion_de_donaciones` y vamos a establecer las siguientes variables de entorno:
 
 ```env
 DB_NAME=<nombre-de-la-base-de-datos>
@@ -60,7 +60,7 @@ PORT=<puerto>
 
 De esta forma vamos a poder crear variables las cuales van a guardar las credenciales propias de cada uno.
 
-Finalmente, vamos a realizar la migración. Para esto, nos paramos en `recomendacion_de_donaciones` y corremos el siguiente comando:
+Finalmente, vamos a realizar la migración. Para esto, corremos el siguiente comando:
 
 ```python
 python manage.py migrate
@@ -68,7 +68,7 @@ python manage.py migrate
 
 ## Ejecutar el Proyecto
 
-Para correr el proyecto, usamos este comando estando parados en `recomendacion_de_donaciones`:
+Para correr el proyecto, usamos este comando:
 
 ```python
 python manage.py runserver
